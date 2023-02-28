@@ -1,9 +1,9 @@
 CREATE TABLE task_management.users (
   id bigint(11) NOT NULL PRIMARY KEY,
   name varchar(30) NOT NULL COMMENT '名前',
-  email varchar(30) NOT NULL UNIQUE COMMENT 'メールアドレス',
-  password varchar(30) NOT NULL COMMENT 'パスワード',
-  path varchar(30) NOT NULL COMMENT 'パス',
+  email varchar(255) NOT NULL UNIQUE COMMENT 'メールアドレス',
+  password varchar(255) NOT NULL COMMENT 'パスワード',
+  path varchar(255) COMMENT '画像パス',
   created_at datetime NOT NULL COMMENT '作成日時'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -11,7 +11,7 @@ CREATE TABLE task_management.projects (
   id bigint(11) NOT NULL PRIMARY KEY,
   user_id bigint(11) NOT NULL COMMENT 'ユーザーID',
   name varchar(30) NOT NULL COMMENT 'プロジェクト名',
-  description varchar(30) NOT NULL COMMENT 'プロジェクト概要',
+  description text NOT NULL COMMENT 'プロジェクト概要',
   color_type varchar(30) NOT NULL COMMENT 'プロジェクトカラー',
   created_at datetime NOT NULL COMMENT '作成日時',
   CONSTRAINT fk_user_id
