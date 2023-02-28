@@ -6,11 +6,11 @@ session_start();
 
 if (!empty($_POST)) {
     if ($_POST['name'] == '') {
-        $error['name'] = 'black';
+        $error['name'] = 'blank';
     }
 
     if ($_POST['email'] == '') {
-        $error['email'] = 'black';
+        $error['email'] = 'blank';
     }
 
     if (strlen($_POST['password']) < 4) {
@@ -18,7 +18,7 @@ if (!empty($_POST)) {
     }
 
     if ($_POST['password'] == '') {
-        $error['password'] = 'black';
+        $error['password'] = 'blank';
     }
 
 
@@ -76,7 +76,7 @@ if (!empty($_POST)) {
                                                                                 } ?>" />
             </dd>
             <?php if (isset($error['name'])) : ?>
-                <?php if ($error['name'] == 'black') : ?>
+                <?php if ($error['name'] == 'blank') : ?>
                     <p class="error">※ 名前を入力してください</p>
                 <?php endif; ?>
             <?php endif; ?>
@@ -87,7 +87,7 @@ if (!empty($_POST)) {
                                                                                     } ?>" />
             </dd>
             <?php if (isset($error['email'])) : ?>
-                <?php if ($error['email'] == 'black') : ?>
+                <?php if ($error['email'] == 'blank') : ?>
                     <p class="error">※ メールアドレスを入力してください</p>
                 <?php endif; ?>
                 <?php if ($error['email'] == 'duplicate') : ?>
@@ -101,7 +101,7 @@ if (!empty($_POST)) {
                                                                                         } ?>" />
             </dd>
             <?php if (isset($error['password'])) : ?>
-                <?php if ($error['password'] == 'black') : ?>
+                <?php if ($error['password'] == 'blank') : ?>
                     <p class="error">※ パスワードを入力してください</p>
                 <?php endif; ?>
                 <?php if ($error['password'] == 'length') : ?>
