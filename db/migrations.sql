@@ -1,5 +1,5 @@
 CREATE TABLE task_management.users (
-  id bigint(11) NOT NULL PRIMARY KEY,
+  id bigint(11) AUTO_INCREMENT PRIMARY KEY,
   name varchar(30) NOT NULL COMMENT '名前',
   email varchar(255) NOT NULL UNIQUE COMMENT 'メールアドレス',
   password varchar(255) NOT NULL COMMENT 'パスワード',
@@ -8,7 +8,7 @@ CREATE TABLE task_management.users (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE task_management.projects (
-  id bigint(11) NOT NULL PRIMARY KEY,
+  id bigint(11) AUTO_INCREMENT PRIMARY KEY,
   user_id bigint(11) NOT NULL COMMENT 'ユーザーID',
   name varchar(30) NOT NULL COMMENT 'プロジェクト名',
   description text NOT NULL COMMENT 'プロジェクト概要',
@@ -21,7 +21,7 @@ CREATE TABLE task_management.projects (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE task_management.tasks (
-  id bigint(11) NOT NULL PRIMARY KEY,
+  id bigint(11) AUTO_INCREMENT PRIMARY KEY,
   project_id bigint(11) NOT NULL COMMENT 'プロジェクトID',
   title varchar(30) NOT NULL COMMENT 'タスクタイトル',
   description text NOT NULL COMMENT 'タスク詳細',

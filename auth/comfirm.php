@@ -1,6 +1,26 @@
 <?php
+session_start();
 
 require_once(__DIR__ . "/../db/dbconnection.php");
+
+if(!isset($_SESSION['join'])) {
+    header('Location: register.php');
+    exit();
+}
+
+if(!empty($_POST)) {
+    $statement = $db->prepare('INSERT INTO users SET name=?, email=?, password=?, path=?, created_at=NOW()');
+    echo $ret = $statement->execute(array(
+        $_SESSION['join']['name'],
+        $_SESSION['join']['email'],
+        sha1($_SESSION['join']['password']),
+        $_SESSION['join']['path'],
+    ));
+    unset($_SESSION['join']);
+
+    header('Location: complete.php');
+    exit();
+}
 
 ?>
 
@@ -13,21 +33,25 @@ require_once(__DIR__ . "/../db/dbconnection.php");
     <title>登録</title>
 </head>
 <body>
-    <from method="post">
+    <form action="" method="post">
+        <input type="hidden" name="action" value="submit" />
         <dl>
             <dt>名前<span class="required">必須</span></dt>
-            <dd><input type="text" name="name" size="30" maxlength="30" /></dd>
+            <dd><?php echo htmlspecialchars($_SESSION['join']['name'], ENT_QUOTES); ?></dd>
             
             <dt>メールアドレス<span class="required">必須</span></dt>
-            <dd><input type="text" name="email" size="30" maxlength="255" /></dd>
+            <dd><?php echo htmlspecialchars($_SESSION['join']['email'], ENT_QUOTES); ?></dd>
+
             <dt>パスワード<span class="required">必須</span></dt>
-            <dd><input type="password" name="password" size="30" maxlength="30" /></dd>
+            <dd>【表示されません】</dd>
             <dt>写真など</dt>
-            <dd><input type="file" name="path" size="30" maxlength="255" /></dd>
+
+            <dd><img src="../assets/images/<?php echo htmlspecialchars($_SESSION['join']['path'], ENT_QUOTES); ?>" width="100" height="100" alt="" /></dd>
         </dl>
         <div>
-            <a href="register.php?action=rewrite">&laquo;&nbsp;書き直す | <input type="submit" value="入力内容を確認する" />
+            <a href="register.php?action=rewrite">&laquo;&nbsp;書き直す
         </div>
+        <input type="submit" value="登録する" />
     </from>
 </body>
 </html>
