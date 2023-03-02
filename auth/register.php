@@ -68,6 +68,11 @@ if (!empty($_POST)) {
 </head>
 
 <body>
+    <header>
+        <?php
+        require_once(__DIR__ . "/../components/header.php");
+        ?>
+    </header>
     <form action="" method="post" enctype="multipart/form-data">
         <dl>
             <dt>名前<span class="required">必須</span></dt>

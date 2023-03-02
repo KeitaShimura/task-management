@@ -52,6 +52,11 @@ if (!empty($_POST)) {
 </head>
 
 <body>
+    <header>
+        <?php
+        require_once(__DIR__ . "/../components/header.php");
+        ?>
+    </header>
     <div id="lead">
         <p>メールアドレスとパスワードを入力してください</p>
         <form action="" method="post">

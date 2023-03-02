@@ -3,12 +3,12 @@ session_start();
 
 require_once(__DIR__ . "/../db/dbconnection.php");
 
-if(!isset($_SESSION['join'])) {
+if (!isset($_SESSION['join'])) {
     header('Location: register.php');
     exit();
 }
 
-if(!empty($_POST)) {
+if (!empty($_POST)) {
     $statement = $db->prepare('INSERT INTO users SET name=?, email=?, password=?, path=?, created_at=NOW()');
     echo $ret = $statement->execute(array(
         $_SESSION['join']['name'],
@@ -26,19 +26,26 @@ if(!empty($_POST)) {
 
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登録</title>
 </head>
+
 <body>
+    <header>
+        <?php
+        require_once(__DIR__ . "/../components/header.php");
+        ?>
+    </header>
     <form action="" method="post">
         <input type="hidden" name="action" value="submit" />
         <dl>
             <dt>名前<span class="required">必須</span></dt>
             <dd><?php echo htmlspecialchars($_SESSION['join']['name'], ENT_QUOTES); ?></dd>
-            
+
             <dt>メールアドレス<span class="required">必須</span></dt>
             <dd><?php echo htmlspecialchars($_SESSION['join']['email'], ENT_QUOTES); ?></dd>
 
@@ -52,6 +59,7 @@ if(!empty($_POST)) {
             <a href="register.php?action=rewrite">&laquo;&nbsp;書き直す
         </div>
         <input type="submit" value="登録する" />
-    </from>
+        </from>
 </body>
+
 </html>
