@@ -1,17 +1,12 @@
 <?php
 
 require_once(__DIR__ . "/../db/dbconnection.php");
+
 session_start();
+require_once(__DIR__ . "/../auth/login-check.php");
 
-if(isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
-    $_SESSION['time'] = time();
 
-    $users = $db->prepare('SELECT * FROM users WHERE id = ?');
-    $users->execute(array($_SESSION['id']));
-    $user = $users->fetch();
-} else {
-    header('Location: ../auth/login.php');
-}
+
 
 ?>
 
