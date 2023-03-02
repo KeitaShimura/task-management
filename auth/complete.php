@@ -22,7 +22,7 @@ require_once(__DIR__ . "/../db/dbconnection.php");
     </header>
     <h2>新規登録 完了</h2>
     <p>ユーザー登録が完了しました</p>
-    <p href="login.php">ログインする</p>
+    <a href="login.php">ログインする</p>
 </body>
 
 </html>
