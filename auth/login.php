@@ -13,6 +13,7 @@ if (isset($_COOKIE['email'])) {
 
 if (!empty($_POST)) {
     if ($_POST['email'] != '' && $_POST['password'] != '') {
+        $db = db::connection();
         $login = $db->prepare('SELECT * FROM users WHERE email=? AND password=?');
         $login->execute(array(
             $_POST['email'],

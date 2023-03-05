@@ -1,9 +1,24 @@
 <?php
 require_once(__DIR__ . "/../db/dbconnection.php");
+require_once('Project.php');
 
 session_start();
 require_once(__DIR__ . "/../auth/login-check.php");
 
+if (!empty($_POST)) {
+    $projectClass = new Project();
+    $projectClass->store($user['id'], $_POST);
+    header('Location: /project/index.php');
+    exit();
+    // $statement = $db->prepare('INSERT INTO projects SET user_id=?, name=?, description=?, color_type=?, created_at=NOW()');
+    // $statement->execute(array(
+    //     $user['id'],
+    //     $_POST['name'],
+    //     $_POST['description'],
+    //     $_POST['color_type'],
+    // ));
+    // header('Location: index.php'); exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +38,7 @@ require_once(__DIR__ . "/../auth/login-check.php");
 
 <body>
     <h2>プロジェクト作成</h2>
-    <from action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <dt>プロジェクト名<span class="required">必須</span></dt>
         <dd>
             <input required type="text" name="name" />
@@ -34,18 +49,23 @@ require_once(__DIR__ . "/../auth/login-check.php");
         <div class="detail-body" id="detail-body" style=" display: none;">
             <dt>プロジェクト概要</dt>
             <dd>
-                <textarea name="name" col="50" rows="5"></textarea>
+                <textarea name="description" col="50" rows="5"></textarea>
             </dd>
             <dt>プロジェクトカラー</dt>
             <dd>
                 <p>
-                    <label><input type="radio" name=”color” value=”radio” id="red" onClick="colors('white')">白</label> <br>
-                    <label> <input type="radio" name=”color” value=”radio” id="green" onClick="colors('red')">赤</label> <br>
-                    <label> <input type="radio" name=”color” value=”radio” id="blue" onClick="colors('blue')">青</label> <br>
+                    <label><input type="radio" name="color_type" value=”radio” id="white" onClick="colors('white')">白</label> <br>
+                    <label> <input type="radio" name=”color_type” value="red" id="red" onClick="colors('red')">赤</label> <br>
+                    <label> <input type="radio" name="color_type" value="blue" id="blue" onClick="colors('blue')">青</label> <br>
                 </p>
             </dd>
         </div>
-    </from>
+        <div class="mt-5 text-center">
+            <a href="/project/index.php" class="btn btn-secondary">戻る</a>
+            <input type="submit" value="登録" class="btn btn-primary">
+        </div>
+        </from>
 </body>
 <script type="text/Javascript" src="../assets/js/create.js"></script>
+
 </html>

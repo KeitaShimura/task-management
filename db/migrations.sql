@@ -11,8 +11,8 @@ CREATE TABLE task_management.projects (
   id bigint(11) AUTO_INCREMENT PRIMARY KEY,
   user_id bigint(11) NOT NULL COMMENT 'ユーザーID',
   name varchar(30) NOT NULL COMMENT 'プロジェクト名',
-  description text NOT NULL COMMENT 'プロジェクト概要',
-  color_type varchar(30) NOT NULL COMMENT 'プロジェクトカラー',
+  description text COMMENT 'プロジェクト概要',
+  color_type varchar(30) COMMENT 'プロジェクトカラー',
   created_at datetime NOT NULL COMMENT '作成日時',
   CONSTRAINT fk_user_id
     FOREIGN KEY (user_id) 

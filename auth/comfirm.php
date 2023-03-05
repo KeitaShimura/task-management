@@ -9,6 +9,7 @@ if (!isset($_SESSION['join'])) {
 }
 
 if (!empty($_POST)) {
+    $db = db::connection();
     $statement = $db->prepare('INSERT INTO users SET name=?, email=?, password=?, path=?, created_at=NOW()');
     echo $ret = $statement->execute(array(
         $_SESSION['join']['name'],

@@ -31,6 +31,7 @@ if (!empty($_POST)) {
     }
 
     if (empty($error)) {
+        $db = db::connection();
         $member = $db->prepare('SELECT COUNT(*) AS cnt FROM users WHERE email=?');
         $member->execute(array($_POST['email']));
         $record = $member->fetch();
