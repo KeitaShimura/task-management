@@ -27,5 +27,4 @@ require_once(__DIR__ . "/../auth/login-check.php");
     <h2>プロジェクト一覧</h2>
     <a href="create.php">新規作成</a>
 </body>
-
 </html>

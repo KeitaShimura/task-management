@@ -1,5 +1,5 @@
-const detailOpenBtn = document.getElementById('modal-open');
-const detailBody = document.getElementById('modal-body');
+const detailOpenBtn = document.getElementById('detail-open');
+const detailBody = document.getElementById('detail-body');
 
 detailOpenBtn.addEventListener('click', detailOpen);
 function detailOpen() {
@@ -10,17 +10,13 @@ function detailOpen() {
     }
 }
 
-let radioButtons = document.querySelectorAll("input[name='color']");
-let result = document.getElementById("result");
-
-let findSelected = () => {
-    let selected = document.querySelector("input[name='color']:checked").value;
-    result.textContent =  `${selected}`;
-    console.log(selected);
+function colors(col) {
+    switch (col) {
+        case 'red': document.bgColor = "#FF0000";
+            break;
+        case 'green': document.bgColor = "#00FF00";
+            break;
+        case 'blue': document.bgColor = "#0000FF";
+            break;
+    }
 }
-
-radioButtons.forEach(radioButton => {
-    radioButton.addEventListener("change", findSelected);
-
-});
-findSelected();

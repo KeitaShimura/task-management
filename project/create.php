@@ -1,9 +1,8 @@
 <?php
-
 require_once(__DIR__ . "/../db/dbconnection.php");
 
 session_start();
-// require_once(__DIR__ . "/../auth/login-check.php");
+require_once(__DIR__ . "/../auth/login-check.php");
 
 ?>
 
@@ -15,7 +14,6 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
-
 </head>
 <header>
     <?php
@@ -30,25 +28,24 @@ session_start();
         <dd>
             <input required type="text" name="name" />
         </dd>
-        <div id="modal-open">
+        <div id="detail-open">
             <p>詳細設定 ▼</p>
         </div>
-        <div class="modal-body" id="modal-body" style=" display: none;">
+        <div class="detail-body" id="detail-body" style=" display: none;">
             <dt>プロジェクト概要</dt>
             <dd>
                 <textarea name="name" col="50" rows="5"></textarea>
             </dd>
             <dt>プロジェクトカラー</dt>
             <dd>
-                <input type="radio" name="color" id="white" value="white" checked>白
-                <input type="radio" name="color" id="red" value="red">赤
-                <input type="radio" name="color" id="blue" value="blue">青
-                <p id="result"></p>
+                <p>
+                    <label><input type="radio" name=”color” value=”radio” id="red" onClick="colors('white')">白</label> <br>
+                    <label> <input type="radio" name=”color” value=”radio” id="green" onClick="colors('red')">赤</label> <br>
+                    <label> <input type="radio" name=”color” value=”radio” id="blue" onClick="colors('blue')">青</label> <br>
+                </p>
             </dd>
         </div>
     </from>
-    <script type="text/Javascript" src="../assets/js/create.js"></script>
-
 </body>
-
+<script type="text/Javascript" src="../assets/js/create.js"></script>
 </html>

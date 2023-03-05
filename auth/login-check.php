@@ -7,4 +7,6 @@ if(isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
     $user = $users->fetch();
 } else {
     header('Location: ../auth/login.php');
+    exit();
 }
+?>
