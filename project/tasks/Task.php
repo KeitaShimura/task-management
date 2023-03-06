@@ -1,5 +1,5 @@
 <?php
-require_once('../db/dbconnection.php');
+require_once(__DIR__ . '/../../db/dbconnection.php');
 
 class Task
 {
@@ -11,14 +11,13 @@ class Task
         $this->PDO = $conn->connection();
     }
 
-    public function store($params)
+    public function store($data)
     {
-        $statement = $this->PDO->prepare('INSERT INTO tasks SET project_id=?, title=?, description=?, order_num=?, status=?, created_at=NOW(), updated_at=NOW()');
+        $statement = $this->PDO->prepare('INSERT INTO tasks SET project_id=?, title=?, description=?, created_at=NOW(), updated_at=NOW()');
         $statement->execute(array(
-            $params['project_id'],
-            $params['title'],
-            $params['description'],
-            $params['status'],
+            $data['project_id'],
+            $data['title'],
+            $data['description'],
         ));
     }
 }

@@ -25,8 +25,8 @@ CREATE TABLE task_management.tasks (
   project_id bigint(11) NOT NULL COMMENT 'プロジェクトID',
   title varchar(30) NOT NULL COMMENT 'タスクタイトル',
   description text NOT NULL COMMENT 'タスク詳細',
-  order_num varchar(30) NOT NULL COMMENT '並び順',
-  status varchar(30) NOT NULL COMMENT 'ステータス',
+  order_num varchar(30)  COMMENT '並び順',
+  status varchar(30)  COMMENT 'ステータス',
   created_at datetime NOT NULL COMMENT '作成日時',
   updated_at datetime NOT NULL COMMENT '更新日時',
   CONSTRAINT fk_project_id

@@ -39,7 +39,7 @@ $backgroundColor = $projectClass->backgroundColor($project['color_type']);
                         </div>
                         <div id="task-body" style="display:none;">
                             <form id="save-data" name="task_form" onsubmit="store()">
-                                <input type="hidden" name="project_id" value="<?php echo htmlspecialchars($projectId, ENT_QUOTES) ?>">
+                                <input type="hidden" name="project_id" id="project_id" value="<?php echo htmlspecialchars($projectId, ENT_QUOTES) ?>">
                                 <div>
                                     <label>タイトル</label>
                                     <input type="text" name="title" id="title">
@@ -50,7 +50,7 @@ $backgroundColor = $projectClass->backgroundColor($project['color_type']);
                                 </div>
                                 <div>
                                     <button id="task-close">削除</button>
-                                    <button>登録</button>
+                                    <button id="save">登録</button>
                                 </div>
                             </form>
                         </div>
