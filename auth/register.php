@@ -130,6 +130,7 @@ if (!empty($_POST)) {
             <input type="submit" value="入力内容を確認する" />
         </div>
         </from>
+        <p>既に登録済みの方は<a href="login.php">こちら</a>
 </body>
 
 </html>

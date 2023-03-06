@@ -7,6 +7,13 @@ function modalOpen() {
     taskBody.style.display = "block";
 }
 
+taskClose.addEventListener('click', modalClose);
+function modalClose() {
+    taskBody.style.display = "none";
+    title.value = '';
+    description.value = '';
+}
+
 function store() {
     event.preventDefault();
     const project_id = document.task_form.project_id.value;

@@ -49,7 +49,7 @@ $backgroundColor = $projectClass->backgroundColor($project['color_type']);
                                     <textarea type="text" name="description" id="description" cols="20" rows="4"></textarea>
                                 </div>
                                 <div>
-                                    <button>削除</button>
+                                    <button id="task-close">削除</button>
                                     <button>登録</button>
                                 </div>
                             </form>
