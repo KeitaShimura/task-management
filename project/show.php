@@ -5,6 +5,8 @@ session_start();
 
 require_once(__DIR__ . "/../auth/login-check.php");
 require_once('Project.php');
+require_once('tasks/Task.php');
+
 
 $projectId = $_GET['project_id'];
 
@@ -32,11 +34,11 @@ $backgroundColor = $projectClass->backgroundColor($project['color_type']);
                 <div>
                     <div>
                         <h3>未対応</h3>
-                        <div>
+                        <div id="task-open">
                             + タスクを追加
                         </div>
-                        <div>
-                            <form>
+                        <div id="task-body" style="display:none;">
+                            <form id="save-data" name="task_form" onsubmit="store()">
                                 <input type="hidden" name="project_id" value="<?php echo htmlspecialchars($projectId, ENT_QUOTES) ?>">
                                 <div>
                                     <label>タイトル</label>
@@ -96,6 +98,6 @@ $backgroundColor = $projectClass->backgroundColor($project['color_type']);
                 </div>
     </div>
 </body>
-<script src="../assets/js/header.js"></script>
+<script src="../assets/js/show.js"></script>
 
 </html>

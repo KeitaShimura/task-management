@@ -20,12 +20,6 @@ class Project
             $data['description'],
             $data['color_type'],
         ));
-
-        if ($statement->execute()) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     public function index($userId)
@@ -54,6 +48,8 @@ class Project
             case 'blue' :
                 $color = 'blue';
                 break;
+            default :
+                $color = 'white';
         }
         return $color;
     }

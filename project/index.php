@@ -43,5 +43,4 @@ $projects = $projectClass->index($user['id']);
         </div>
     </div>
 </body>
-<script src="../assets/js/header.js"></script>
 </html>

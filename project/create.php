@@ -10,14 +10,6 @@ if (!empty($_POST)) {
     $projectClass->store($user['id'], $_POST);
     header('Location: /project/index.php');
     exit();
-    // $statement = $db->prepare('INSERT INTO projects SET user_id=?, name=?, description=?, color_type=?, created_at=NOW()');
-    // $statement->execute(array(
-    //     $user['id'],
-    //     $_POST['name'],
-    //     $_POST['description'],
-    //     $_POST['color_type'],
-    // ));
-    // header('Location: index.php'); exit();
 }
 ?>
 
@@ -38,7 +30,7 @@ if (!empty($_POST)) {
 
 <body>
     <h2>プロジェクト作成</h2>
-    <form action="" method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         <dt>プロジェクト名<span class="required">必須</span></dt>
         <dd>
             <input required type="text" name="name" />
