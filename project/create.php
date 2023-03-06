@@ -61,8 +61,8 @@ if (!empty($_POST)) {
             </dd>
         </div>
         <div class="mt-5 text-center">
-            <a href="/project/index.php" class="btn btn-secondary">戻る</a>
-            <input type="submit" value="登録" class="btn btn-primary">
+            <a href="/project/index.php">戻る</a>
+            <input type="submit" value="登録">
         </div>
         </from>
 </body>

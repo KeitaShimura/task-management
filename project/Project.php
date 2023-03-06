@@ -35,4 +35,26 @@ class Project
         return $statement->fetchAll();
     }
 
+    public function get($userId, $projectId)
+    {
+        $statement = $this->PDO->prepare('SELECT * FROM projects WHERE id=? AND user_id=?');
+        $statement->execute(array($projectId, $userId));
+        return $statement->fetch();
+    }
+
+    public function backgroundColor($colorType)
+    {
+        switch ($colorType) {
+            case 'white':
+                $color = 'white';
+                break;
+            case 'red' :
+                $color = 'red';
+                break;
+            case 'blue' :
+                $color = 'blue';
+                break;
+        }
+        return $color;
+    }
 }

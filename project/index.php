@@ -34,7 +34,7 @@ $projects = $projectClass->index($user['id']);
             <ul>
                 <?php foreach ($projects as $project): ?>
                     <li>
-                        <a href="/project/show.php?project_id=<?php echo $project['id'] ?>">
+                        <a href="show.php?project_id=<?php echo $project['id'] ?>">
                             <?php echo $project['name'] ?>
                         </a>
                     </li>
