@@ -50,7 +50,7 @@ $backgroundColor = $projectClass->backgroundColor($project['color_type']);
                                 </div>
                                 <div>
                                     <button id="task-close">削除</button>
-                                    <button id="save">登録</button>
+                                    <button id="task-close">登録</button>
                                 </div>
                             </form>
                         </div>

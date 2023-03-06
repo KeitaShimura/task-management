@@ -20,18 +20,23 @@ function store() {
     const title = document.task_form.title.value;
     const description = document.task_form.description.value;
 
-    const formData = new FormData();
-    formData.append('project_id', project_id);
-    formData.append('title', title);
-    formData.append('description', description);
+    const data = new FormData();
+    data.append('project_id', project_id);
+    data.append('title', title);
+    data.append('description', description);
 
-    const req = new XMLHttpRequest();
-    req.open('POST', '../project/tasks/store.php', true);
-    req.send(formData);
+    const xml = new XMLHttpRequest();
+    xml.open('POST', '../project/tasks/store.php', true);
+    xml.send(data);
 
-    req.onreadystatechange = function () {
-        if (req.readyState == 4 && req.status == 200) {
-            console.log(req.responseText);
-        } else {console.log('通信中です')}
+    xml.onreadystatechange = function () {
+        if (xml.readyState == 4 && xml.status == 200) {
+            console.log(xml.responseText);
+            modalClose()
+        }
     }
+}
+
+function show() {
+
 }
