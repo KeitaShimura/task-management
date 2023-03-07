@@ -48,8 +48,9 @@ if (!empty($_POST)) {
         header('Location: comfirm.php');
         exit();
     }
+    
     if (isset($_REQUEST['action'])) {
-        if ($_REQUEST['action'] == 'rewrite') {
+        if ($_REQUEST['action'] === 'rewrite') {
             $_POST = $_SESSION['join'];
             $error['rewrite'] = true;
         }

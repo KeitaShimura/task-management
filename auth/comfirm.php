@@ -41,7 +41,7 @@ if (!empty($_POST)) {
         require_once(__DIR__ . "/../components/header.php");
         ?>
     </header>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <input type="hidden" name="action" value="submit" />
         <dl>
             <dt>名前<span class="required">必須</span></dt>

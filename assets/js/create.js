@@ -12,11 +12,11 @@ function modalOpen() {
 
 function colors(col) {
     switch (col) {
-        case 'red': document.bgColor = "#FF0000";
+        case 'white': document.bgColor = "white";
             break;
-        case 'green': document.bgColor = "#00FF00";
+        case 'red': document.bgColor = "red";
             break;
-        case 'blue': document.bgColor = "#0000FF";
+        case 'blue': document.bgColor = "blue";
             break;
     }
 }

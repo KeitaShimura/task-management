@@ -46,13 +46,13 @@ if (!empty($_POST)) {
             <dt>プロジェクトカラー</dt>
             <dd>
                 <p>
-                    <label><input type="radio" name="color_type" value=”radio” id="white" onClick="colors('white')">白</label> <br>
-                    <label> <input type="radio" name=”color_type” value="red" id="red" onClick="colors('red')">赤</label> <br>
-                    <label> <input type="radio" name="color_type" value="blue" id="blue" onClick="colors('blue')">青</label> <br>
+                    <label><input type="radio" name="color_type" value="white" id="white" onClick="colors('white')">白</label> <br>
+                    <label><input type="radio" name="color_type" value="red" id="red" onClick="colors('red')">赤</label> <br>
+                    <label><input type="radio" name="color_type" value="blue" id="blue" onClick="colors('blue')">青</label> <br>
                 </p>
             </dd>
         </div>
-        <div class="mt-5 text-center">
+        <div>
             <a href="/project/index.php">戻る</a>
             <input type="submit" value="登録">
         </div>
