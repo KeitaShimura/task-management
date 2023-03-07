@@ -1,8 +1,8 @@
-const detailOpenBtn = document.getElementById('detail-open');
+const detailOpen = document.getElementById('detail-open');
 const detailBody = document.getElementById('detail-body');
 
-detailOpenBtn.addEventListener('click', detailOpen);
-function detailOpen() {
+detailOpen.addEventListener('click', modalOpen);
+function modalOpen() {
     if (detailBody.style.display === "none") {
         detailBody.style.display = "block";
     } else {

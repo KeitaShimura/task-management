@@ -2,6 +2,14 @@ const taskOpen = document.getElementById('task-open');
 const taskClose = document.getElementById('task-close');
 const taskBody = document.getElementById('task-body');
 
+const taskNot = document.getElementById('task-not');
+const taskDuring = document.getElementById('task-during');
+const taskCompletion = document.getElementById('task-completion');
+const addTask = document.getElementById('add-task');
+const newTask = document.getElementById('new-task');
+let title = document.getElementById('title');
+let description = document.getElementById('description');
+
 taskOpen.addEventListener('click', modalOpen);
 function modalOpen() {
     taskBody.style.display = "block";
@@ -15,7 +23,6 @@ function modalClose() {
 }
 
 function store() {
-    event.preventDefault();
     const project_id = document.task_form.project_id.value;
     const title = document.task_form.title.value;
     const description = document.task_form.description.value;
@@ -31,12 +38,21 @@ function store() {
 
     xml.onreadystatechange = function () {
         if (xml.readyState == 4 && xml.status == 200) {
-            console.log(xml.responseText);
             modalClose()
         }
     }
 }
 
-function show() {
+function deleteTask(id) {
+    const xml = new XMLHttpRequest();
+    xml.open('POST', '../project/tasks/delete.php', true);
+    xml.setRequestHeader('content-type',
+        'application/x-www-form-urlencoded;charset=UTF-8');
+    xml.send('id=' + id);
 
+    xml.onreadystatechange = function () {
+        if (xml.readyState == 4 && xml.status == 200) {
+            document.getElementById(id).remove();
+        }
+    }
 }

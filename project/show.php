@@ -13,6 +13,12 @@ $projectId = $_GET['project_id'];
 $projectClass = new Project();
 $project = $projectClass->get($user['id'], $projectId);
 $backgroundColor = $projectClass->backgroundColor($project['color_type']);
+
+$task = new Task();
+$taskNot = $task->get($projectId);
+$taskDuring = $task->get($projectId);
+$taskCompletion = $task->get($projectId);
+
 ?>
 
 <!doctype html>
@@ -54,17 +60,21 @@ $backgroundColor = $projectClass->backgroundColor($project['color_type']);
                                 </div>
                             </form>
                         </div>
-                        <div>
-                            <div>
-                                <label>タイトル</label>
+                        <?php foreach ($taskNot as $task) : ?>
+                            <div id="<?php echo $task['id'] ?>" draggable="true">
+                                <div>
+                                    <label>タイトル</label>
+                                    <p><?php echo htmlspecialchars($task['title'], ENT_QUOTES) ?></p>
+                                </div>
+                                <div>
+                                    <label>詳細</label>
+                                    <p><?php echo htmlspecialchars($task['description'], ENT_QUOTES) ?></p>
+                                </div>
+                                <div>
+                                    <button onclick="deleteTask(<?php echo $task['id'] ?>)">削除</button>
+                                </div>
                             </div>
-                            <div>
-                                <label>詳細</label>
-                            </div>
-                            <div>
-                                <button>削除</button>
-                            </div>
-                        </div>
+                        <?php endforeach ?>
                     </div>
 
                     <div>
